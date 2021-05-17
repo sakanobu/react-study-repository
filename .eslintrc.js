@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    es2020: true,
+    es2021: true,
     node: true,
   },
   parser: '@typescript-eslint/parser',
@@ -10,8 +10,9 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    sourceType: 'module',
     ecmaVersions: 2020,
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
   plugins: [
     '@typescript-eslint',
@@ -23,11 +24,12 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
@@ -41,9 +43,12 @@ module.exports = {
         exceptAfterSingleLine: true,
       },
     ],
-    // should be rewritten as `['error', { allowAsStatement: true }]` in ESLint 7 or later
-    // SEE: https://github.com/typescript-eslint/typescript-eslint/issues/1184
-    'no-void': 'off',
+    'no-void': [
+      'error',
+      {
+        allowAsStatement: true,
+      },
+    ],
     'padding-line-between-statements': [
       'error',
       {
@@ -87,7 +92,22 @@ module.exports = {
       },
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'sort-imports': 0,
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+        ],
+      },
+    ],
   },
   overrides: [
     {
