@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+**_2021 年 5 月の設定なので､各種パッケージのバージョン上げたり eslint や prettier の推奨設定を確認したりと適宜修正が必要_**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 手順
 
-## Available Scripts
+1. `npx create-react-app . --template typescript`
 
-In the project directory, you can run:
+1. .gitignore のコピペ
 
-### `yarn start`
+1. .eslintignore のコピペ
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. .prettierignore のコピペ
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. `yarn add -D @types/prettier @types/testing-library__jest-dom @types/testing-library__react @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jest eslint-plugin-testing-library prettier typesync husky lint-staged`  
+   注)最後とその 1 つ前のの husky と lint-staged は加えなくてもいいかも…  
+   毎回のコミット毎にこれら 2 つを走らせるの遅くてストレス溜まるし､普通はエディター内で保存ごとに prettier かけてるだろうし､大丈夫…なはず…
 
-### `yarn test`
+1. .package.json のコピペ(ただし､まるごと Gist をコピペすると上の yarn でのバージョンと競合するので部分ごとにコピペする)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. `yarn`をコマンドラインで実行(typesync が型を追加してくれたり､もしかしたらパッケージのインストールでエラーが出たりするかもなので)
 
-### `yarn build`
+1. tsconfig.json のコピペ
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. .eslintrc.js のコピペ
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. .prettierrc のコピペ
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. `rm -rf src/ public/`
 
-### `yarn eject`
+1. `mkdir src public`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. src ディレクトリに App.test.tsx と App.tsx と index.tsx と setupTests.ts をコピペ
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. public ディレクトリに index.html をコピペ
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. 動作確認
+   1. `yarn start`をして Hello React が`http://localhost:3000`に表示されるのか確かめる
+   1. App.tsx で行を沢山増やしてみて ESLint がエラーを報告してくれるのか確かめる
+   1. (上記ではまだ説明していない､VSCode への ESLint 拡張や Pretiier 拡張の導入&VSCode の設定での Pretiier を保存時に自動実行などの設定をした上で､)保存時に 1 つ上で増やした改行が消えるのか(自動整形が行われるのか)確かめる
+   1. 不正な型を入力して ts-server がエラーを報告してくれるのか確かめる
+   1. `yarn test`をして間違った値を入れてみるなどする
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 保留
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- stylelint の設定
+- .env とか
