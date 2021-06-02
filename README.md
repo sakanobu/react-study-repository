@@ -41,5 +41,10 @@
 
 ### 保留
 
-- stylelint の設定
-- .env とか
+- .env
+  - <https://create-react-app.dev/docs/adding-custom-environment-variables/>
+- stylelint
+- storybook
+- cypress
+- eslint-plugin-eslint-comments
+- eslint-plugin-graphql
