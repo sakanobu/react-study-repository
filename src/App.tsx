@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { VFC } from 'react';
 import DisplayCount from 'DisplayCount';
 import CountButton from 'CountButton';
 
-const App: FC = () => (
+const App: VFC = () => (
   // これだとコンポーネントが変化を検知できない
   // const count = 0;
 
