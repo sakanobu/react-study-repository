@@ -1,6 +1,20 @@
 **_2021 年 5 月の設定なので､各種パッケージのバージョン上げたり eslint や prettier の推奨設定を確認したりと適宜修正が必要_**
 
-### 手順
+### GitHub から clone する際の手順
+
+1. clone した内容を展開したいディレクトリの作成及びそのディレクトリへの移動
+
+1. `git clone https://github.com/sakanobu/react-study-repository.git .`
+
+1. `git remote -v`
+
+1. `git remote rm origin`
+
+1. `git remote -v`
+
+1. `yarn`
+
+### ゼロから構築の際の手順
 
 1. `npx create-react-app . --template typescript`
 
@@ -10,8 +24,8 @@
 
 1. .prettierignore のコピペ
 
-1. `yarn add -D @types/prettier @types/testing-library__jest-dom @types/testing-library__react @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jest eslint-plugin-testing-library prettier typesync husky lint-staged`  
-   注)最後とその 1 つ前のの husky と lint-staged は加えなくてもいいかも…  
+1. `yarn add -D @types/prettier @types/testing-library__jest-dom @types/testing-library__react @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-airbnb eslint-config-airbnb-typescript eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jest eslint-plugin-jest-dom eslint-plugin-testing-library prettier typesync husky lint-staged`
+   注)最後とその 1 つ前のの husky と lint-staged は加えなくてもいいかも…
    毎回のコミット毎にこれら 2 つを走らせるの遅くてストレス溜まるし､普通はエディター内で保存ごとに prettier かけてるだろうし､大丈夫…なはず…
 
 1. .package.json のコピペ(ただし､まるごと Gist をコピペすると上の yarn でのバージョンと競合するので部分ごとにコピペする)
@@ -48,3 +62,4 @@
 - cypress
 - eslint-plugin-eslint-comments
 - eslint-plugin-graphql
+- components ディレクトリと test ディレクトリの作成､及び､ファイルの移動
